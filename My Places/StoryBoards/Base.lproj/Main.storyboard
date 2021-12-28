@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--My Places-->
         <scene sceneID="VNj-yV-FbS">
             <objects>
                 <tableViewController id="ySo-eR-qf9" customClass="PlacesListTableViewController" customModule="My_Places" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="ySo-eR-qf9" id="TaP-gw-LOz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="X5t-ew-PsB"/>
+                    <navigationItem key="navigationItem" title="My Places" id="X5t-ew-PsB"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05z-Iy-PJD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,6 +43,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gd0-g8-nZ6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="24"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="ySo-eR-qf9" kind="relationship" relationship="rootViewController" id="n57-Jd-rgb"/>

@@ -56,13 +56,12 @@
 		3515FC47277A197100DDDD51 /* My Places */ = {
 			isa = PBXGroup;
 			children = (
+				3515FC60277A8FCE00DDDD51 /* StoryBoards */,
 				3515FC5F277A86B200DDDD51 /* Models */,
 				3515FC5C277A83C900DDDD51 /* ViewControllers */,
 				3515FC48277A197100DDDD51 /* AppDelegate.swift */,
 				3515FC4A277A197100DDDD51 /* SceneDelegate.swift */,
-				3515FC4E277A197100DDDD51 /* Main.storyboard */,
 				3515FC51277A197100DDDD51 /* Assets.xcassets */,
-				3515FC53277A197100DDDD51 /* LaunchScreen.storyboard */,
 				3515FC56277A197100DDDD51 /* Info.plist */,
 			);
 			path = "My Places";
@@ -81,6 +80,15 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3515FC60277A8FCE00DDDD51 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				3515FC4E277A197100DDDD51 /* Main.storyboard */,
+				3515FC53277A197100DDDD51 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
