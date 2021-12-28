@@ -30,17 +30,16 @@ class PlacesListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "showPlace", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "showPlace", for: indexPath) as! CustomTableViewCell
         
-        var content = cell.defaultContentConfiguration()
-        content.text = restaurantNames[indexPath.row]
-        content.image = UIImage(named: restaurantNames[indexPath.row])
-        content.imageProperties.cornerRadius = tableView.rowHeight / 2
+        cell.nameLabel.text = restaurantNames[indexPath.row]
+        cell.locationLabel.text = restaurantNames[indexPath.row]
+        cell.typeLabel.text = restaurantNames[indexPath.row]
         
+        cell.imageOfPlace.image = UIImage(named: restaurantNames[indexPath.row])
+        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
+        cell.imageOfPlace.clipsToBounds = true
         
-        
-        
-        cell.contentConfiguration = content
         return cell
     }
     

@@ -13,6 +13,7 @@
 		3515FC52277A197100DDDD51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3515FC51277A197100DDDD51 /* Assets.xcassets */; };
 		3515FC55277A197100DDDD51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3515FC53277A197100DDDD51 /* LaunchScreen.storyboard */; };
 		3515FC5E277A83FD00DDDD51 /* PlacesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515FC5D277A83FD00DDDD51 /* PlacesListTableViewController.swift */; };
+		3515FC62277A977200DDDD51 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3515FC61277A977200DDDD51 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3515FC54277A197100DDDD51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3515FC56277A197100DDDD51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3515FC5D277A83FD00DDDD51 /* PlacesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesListTableViewController.swift; sourceTree = "<group>"; };
+		3515FC61277A977200DDDD51 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				3515FC5D277A83FD00DDDD51 /* PlacesListTableViewController.swift */,
+				3515FC61277A977200DDDD51 /* CustomTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			files = (
 				3515FC49277A197100DDDD51 /* AppDelegate.swift in Sources */,
 				3515FC4B277A197100DDDD51 /* SceneDelegate.swift in Sources */,
+				3515FC62277A977200DDDD51 /* CustomTableViewCell.swift in Sources */,
 				3515FC5E277A83FD00DDDD51 /* PlacesListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
