@@ -9,12 +9,23 @@ import UIKit
 
 class NewPlaceTableViewController: UITableViewController {
     
-    @IBOutlet var imageOfPlace: UIImageView!
+    var newPlace: Place?
+    
+    var imageIsChanged = false
+    
+    @IBOutlet var placeImage: UIImageView!
+    
+    @IBOutlet var saveButton: UIBarButtonItem!
+    
+    @IBOutlet var placeNameTF: UITextField!
+    @IBOutlet var placeLocationTF: UITextField!
+    @IBOutlet var placeTypeTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        saveButton.isEnabled = false
+        placeNameTF.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
 
     }
     
@@ -51,10 +62,28 @@ class NewPlaceTableViewController: UITableViewController {
         } else {
             view.endEditing(true)
         }
-            
     }
-
     
+    func saveNewPlace() {
+        
+        var image: UIImage?
+        
+        if imageIsChanged {
+            image = placeImage.image
+        } else {
+            image = UIImage(named: "imagePlaceholder2x")
+        }
+        
+        newPlace = Place(name: placeNameTF.text!,
+                         location: placeLocationTF.text,
+                         type: placeTypeTF.text,
+                         image: image,
+                         restaurantImage: nil)
+    }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+       dismiss(animated: true, completion: nil)
+    }
 }
 
 //MARK: - Text field delegate
@@ -63,6 +92,14 @@ extension NewPlaceTableViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    @objc private func textFieldChanged() {
+        if placeNameTF.text?.isEmpty == false {
+            saveButton.isEnabled = true
+        } else {
+            saveButton.isEnabled = false
+        }
     }
 }
 
@@ -80,9 +117,10 @@ extension NewPlaceTableViewController: UIImagePickerControllerDelegate, UINaviga
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        imageOfPlace.image = info[.editedImage] as? UIImage
-        imageOfPlace.contentMode = .scaleToFill
-        imageOfPlace.clipsToBounds = true
+        placeImage.image = info[.editedImage] as? UIImage
+        placeImage.contentMode = .scaleToFill
+        placeImage.clipsToBounds = true
+        imageIsChanged = true
         dismiss(animated: true)
     }
 }

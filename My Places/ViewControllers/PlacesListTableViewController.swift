@@ -9,14 +9,13 @@ import UIKit
 
 class PlacesListTableViewController: UITableViewController {
     
-    let places = Place.getPlaces()
+    var places = Place.getPlaces()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 85
-
-       
+        
     }
 
     // MARK: - Table view data source
@@ -27,12 +26,18 @@ class PlacesListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showPlace", for: indexPath) as! CustomTableViewCell
+        let place = places[indexPath.row]
+    
+        cell.nameLabel.text = place.name
+        cell.locationLabel.text = place.location
+        cell.typeLabel.text = place.type
         
-        cell.nameLabel.text = places[indexPath.row].name
-        cell.locationLabel.text = places[indexPath.row].location
-        cell.typeLabel.text = places[indexPath.row].type
+        if place.image == nil {
+            cell.imageOfPlace.image = UIImage(named: place.restaurantImage!)
+        } else {
+            cell.imageOfPlace.image = place.image
+        }
         
-        cell.imageOfPlace.image = UIImage(named: places[indexPath.row].image)
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         cell.imageOfPlace.clipsToBounds = true
         
@@ -53,6 +58,10 @@ class PlacesListTableViewController: UITableViewController {
     }
     */
     
-    @IBAction func cancelAction(_ segue: UIStoryboardSegue) {}
-
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue) {
+        guard let newPlaceTableVC = segue.source as? NewPlaceTableViewController else {return}
+        newPlaceTableVC.saveNewPlace()
+        places.append(newPlaceTableVC.newPlace!)
+        tableView.reloadData()
+    }
 }
